@@ -1,0 +1,49 @@
+/****************************************************************************************
+
+                            Express.js-Web application framework
+                            To create APIs
+
+*****************************************************************************************/
+
+
+
+/**********************************Hello world*******************************************/
+const express = require ('express');   //home route.
+const aapte = express();
+
+aapte.get('/',(req,res)=>{
+    res.send('Hello world');
+});
+
+aapte.listen(3000); 
+
+
+/*************************Express GET requests*******************************************/
+
+aapte.get('/example',(req,res)=>{      //Creating example route
+    res.send('Hitting example route');
+});
+
+
+
+
+/**********************Express GET req passing params via url*****************************/
+
+// aapte.get('/example/:name/:age',(req,res)=>{
+//     console.log(req.params);
+//     res.send('example with route params');
+// });
+
+// aapte.get('/example/:name/:age',(req,res)=>{
+//     console.log(req.params);
+//     res.send(req.params.name + " : " + req.params.age);//Send passed params on web paage
+                                               
+// });
+
+
+/*****************************Passing multiple queries**************************************/
+aapte.get('/example/:name/:age',(req,res)=>{
+    console.log(req.params);
+    console.log(req.query);
+    res.send(req.params.name + " : " + req.params.age);
+});
